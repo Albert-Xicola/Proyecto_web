@@ -70,6 +70,9 @@ pipeline {
                         ssh-add -l
 
                         ssh -o StrictHostKeyChecking=no root@10.30.212.61 '
+                            # Añadir el directorio Proyecto_web a la lista de directorios seguros
+                            git config --global --add safe.directory /var/www/Proyecto_web
+
                             # Verificar si la carpeta Proyecto_web existe en /var/www
                             if [ -d /var/www/Proyecto_web ]; then
                                 echo "El directorio Proyecto_web ya existe. Realizando git pull..."
