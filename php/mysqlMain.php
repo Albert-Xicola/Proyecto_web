@@ -1,7 +1,7 @@
 <?php
 $name = "";
 
-$link = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWORD,$DB_NAME);
+$link = mysqli_connect('localhost','grupo5-','grupo5-','pokewebapp');
 
 
 if ($link == false) {
