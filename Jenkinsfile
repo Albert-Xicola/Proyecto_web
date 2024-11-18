@@ -70,13 +70,13 @@ pipeline {
                         ssh-add -l
 
                         ssh -o StrictHostKeyChecking=no root@10.30.212.61 '
-                            # Verifica si el directorio es un repositorio Git
-                            if [ -d /var/www/Proyecto_web/.git ]; then
-                                echo "Repositorio ya existe. Actualizando..."
+                            # Verificar si la carpeta Proyecto_web existe en /var/www
+                            if [ -d /var/www/Proyecto_web ]; then
+                                echo "El directorio Proyecto_web ya existe. Realizando git pull..."
                                 cd /var/www/Proyecto_web && git reset --hard HEAD && git pull
                             else
-                                echo "Eliminando directorio existente y clonando el repositorio..."
-                                rm -rf /var/www/Proyecto_web
+                                echo "El directorio Proyecto_web no existe. Realizando git clone..."
+                                mkdir -p /var/www/Proyecto_web
                                 git clone https://github.com/Albert-Xicola/Proyecto_web.git /var/www/Proyecto_web
                             fi
                         '
