@@ -102,7 +102,9 @@ if (!isset($_SESSION["currentEmail"])) {
           Stucom ASX1
         </div>
       </footer>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" 
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy8jHg1z4jNfEXt7U6SOF4I0oGxZaz93jpqxWw7A" 
+        crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
   </body>
 </html>
