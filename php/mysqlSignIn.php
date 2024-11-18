@@ -2,7 +2,8 @@
 $message = "";
 
 if (!empty($_POST)) {
-    $link = mysqli_connect('localhost','grupo5-','grupo5-','pokewebapp');
+    $link = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWORD,$DB_NAME);
+
 
     if ($link == false) {
         $message = "ERROR: Could not connect " . mysqli_connect_error();

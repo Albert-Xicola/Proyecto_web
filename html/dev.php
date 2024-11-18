@@ -6,7 +6,8 @@ if ($_SESSION["currentEmail"] !== "admin@stucom.com") {
   exit();
 }
 
-$link = mysqli_connect('localhost','grupo5-','grupo5-','pokewebapp');
+$link = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWORD,$DB_NAME);
+
 
 if (isset($_POST['userId']) && isset($_POST['pokeballs'])) {
   $userId = $_POST['userId'];
