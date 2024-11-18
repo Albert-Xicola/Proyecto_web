@@ -68,9 +68,20 @@ pipeline {
                     sh '''
                         echo "Verificando clave SSH"
                         ssh-add -l
-                        ssh -o StrictHostKeyChecking=no root@10.30.212.61 'cd /var/www/Proyecto_web/ && git clone https://github.com/Albert-Xicola/Proyecto_web.git || (cd /var/www/Proyecto_web/ && git pull)'
+
+                        ssh -o StrictHostKeyChecking=no root@10.30.212.61 '
+                            # Verifica si el directorio es un repositorio Git
+                            if [ -d /var/www/Proyecto_web/.git ]; then
+                                echo "Repositorio ya existe. Actualizando..."
+                                cd /var/www/Proyecto_web && git reset --hard HEAD && git pull
+                            else
+                                echo "Eliminando directorio existente y clonando el repositorio..."
+                                rm -rf /var/www/Proyecto_web
+                                git clone https://github.com/Albert-Xicola/Proyecto_web.git /var/www/Proyecto_web
+                            fi
+                        '
                     '''
-        }
+                }
             }
         }
     }
