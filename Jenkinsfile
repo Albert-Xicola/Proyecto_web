@@ -21,7 +21,7 @@ pipeline {
                         -Dsonar.projectKey=testPipeLine \
                         -Dsonar.sources=. \
                         -Dsonar.php.version=8.0 \
-                        -Dsonar.host.url=http://10.30.212.61:9000/ \
+                        -Dsonar.host.url=http://10.30.212.77:9000/ \
                         -Dsonar.login=${SONAR_AUTH_TOKEN} \
                         -Dsonar.python.version=3.x  # Especifica la versión de Python si es necesario
                     '''
