@@ -21,7 +21,7 @@ pipeline {
                         -Dsonar.projectKey=testPipeLine \
                         -Dsonar.sources=. \
                         -Dsonar.php.version=8.0 \
-                        -Dsonar.host.url=http://10.30.212.77:9000/ \
+                        -Dsonar.host.url=http://10.30.212.36:9000/ \
                         -Dsonar.login=${SONAR_AUTH_TOKEN} \
                         -Dsonar.python.version=3.x  # Especifica la versión de Python si es necesario
                     '''
@@ -45,7 +45,7 @@ pipeline {
                     // Run OWASP ZAP container
                     sh '''
                     docker run --user root --name zap_scan -v zap_volume:/zap/wrk/ -t ghcr.io/zaproxy/zaproxy:stable \
-                    zap-baseline.py -t http://10.30.212.61 \
+                    zap-baseline.py -t http://10.30.212.36 \
                     -r reporte_zap.html -I
                     '''
 
@@ -69,7 +69,7 @@ pipeline {
                         echo "Verificando clave SSH"
                         ssh-add -l
 
-                        ssh -o StrictHostKeyChecking=no root@10.30.212.61 '
+                        ssh -o StrictHostKeyChecking=no root@10.30.212.36 '
                             # Añadir el directorio Proyecto_web a la lista de directorios seguros
                             git config --global --add safe.directory /var/www/Proyecto_web
 
