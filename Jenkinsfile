@@ -18,7 +18,7 @@ pipeline {
                 withSonarQubeEnv("${SONARQUBE_SERVER}") {
                     sh '''
                         /opt/sonar-scanner/bin/sonar-scanner \
-                        -Dsonar.projectKey=testPipeLine \
+                        -Dsonar.projectKey=djangotest \
                         -Dsonar.sources=. \
                         -Dsonar.php.version=8.0 \
                         -Dsonar.host.url=http://10.30.212.36:9000/ \
